@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Sistema de Monitoreo y Predicción Titicaca</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="asset/styles/tailwind.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="asset/styles/styles.css">
+</head>
+
+<body class="bg-surface-container-low font-body-md text-on-surface min-h-screen flex flex-col">
+  <!-- TopAppBar -->
+  <header class="bg-surface shadow-sm sticky top-0 z-50">
+    <div class="flex justify-between items-center w-full px-container-padding-desktop max-w-7xl mx-auto h-16">
+      <div class="text-headline-md font-headline-md font-semibold text-primary">
+        Sistema de Monitoreo y Predicción Titicaca
+      </div>
+      <nav class="hidden md:flex items-center space-x-gutter">
+        <a class="text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-200"
+          href="#">Dashboard</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Modelos</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Histórico</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Reportes</a>
+      </nav>
+      <div class="flex items-center space-x-stack-sm">
+        <button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+          <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+        </button>
+        <button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+          <span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+        </button>
+        <button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+          <span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main
+    class="flex-grow max-w-7xl w-full mx-auto px-container-padding-mobile md:px-container-padding-desktop py-stack-md">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+      <!-- Left Column: Input Form -->
+      <aside class="lg:col-span-5 space-y-stack-md">
+        <section
+          class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,51,102,0.08)] p-stack-md border border-surface-container-high">
+          <div class="flex items-center gap-base mb-stack-md">
+            <span class="material-symbols-outlined text-primary"
+              data-icon="settings_input_component">settings_input_component</span>
+            <h2 class="text-headline-md font-headline-md text-secondary">Parámetros del Modelo</h2>
+          </div>
+          <form class="space-y-stack-md">
+            <!-- Temporal Section -->
+            <div class="space-y-stack-sm">
+              <h3 class="text-label-sm font-label-sm uppercase tracking-wider text-outline">Sección
+                Temporal</h3>
+              <div class="grid grid-cols-3 gap-stack-sm">
+                <div class="space-y-base">
+                  <label class="text-label-md font-label-md block">Año</label>
+                  <input
+                    class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-2 focus:ring-2 focus:ring-primary-container outline-none transition-all"
+                    max="2030" min="2024" type="number" value="2024" />
+                </div>
+                <div class="space-y-base">
+                  <label class="text-label-md font-label-md block">Mes</label>
+                  <select
+                    class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-2 focus:ring-2 focus:ring-primary-container outline-none appearance-none transition-all">
+                    <option>Enero</option>
+                    <option>Febrero</option>
+                    <option>Marzo</option>
+                    <option>Abril</option>
+                  </select>
+                </div>
+                <div class="space-y-base">
+                  <label class="text-label-md font-label-md block">Día</label>
+                  <input
+                    class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-2 focus:ring-2 focus:ring-primary-container outline-none transition-all"
+                    max="31" min="1" type="number" value="15" />
+                </div>
+              </div>
+            </div>
+            <hr class="border-surface-variant" />
+            <!-- Climatic Section -->
+            <div class="space-y-stack-sm">
+              <h3 class="text-label-sm font-label-sm uppercase tracking-wider text-outline">Sección
+                Climática</h3>
+              <div class="space-y-base">
+                <label class="text-label-md font-label-md flex justify-between">
+                  Precipitación <span class="text-outline-variant">mm</span>
+                </label>
+                <input
+                  class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-2 focus:ring-2 focus:ring-primary-container outline-none transition-all"
+                  max="500" min="0" placeholder="0.0" step="0.1" type="number" />
+              </div>
+              <div class="space-y-base">
+                <label class="text-label-md font-label-md flex justify-between">
+                  Temperatura Máx <span class="text-primary font-bold">18°C</span>
+                </label>
+                <input
+                  class="w-full h-2 bg-surface-container-high rounded-full appearance-none cursor-pointer accent-primary"
+                  max="25" min="-10" type="range" value="18" />
+                <div class="flex justify-between text-label-sm text-outline-variant">
+                  <span>-10°C</span>
+                  <span>25°C</span>
+                </div>
+              </div>
+              <div class="space-y-base">
+                <label class="text-label-md font-label-md flex justify-between">
+                  Temperatura Mín <span class="text-primary font-bold">4°C</span>
+                </label>
+                <input
+                  class="w-full h-2 bg-surface-container-high rounded-full appearance-none cursor-pointer accent-primary"
+                  max="25" min="-10" type="range" value="4" />
+                <div class="flex justify-between text-label-sm text-outline-variant">
+                  <span>-10°C</span>
+                  <span>25°C</span>
+                </div>
+              </div>
+            </div>
+            <footer class="pt-stack-md">
+              <button
+                class="w-full bg-primary text-on-primary flex items-center justify-center gap-base py-3 px-stack-md rounded-lg font-bold shadow-sm hover:bg-on-primary-fixed-variant transition-all active:scale-[0.98]"
+                type="button">
+                <span class="material-symbols-outlined animate-spin text-[20px]"
+                  data-icon="progress_activity">progress_activity</span>
+                Calcular Predicción
+              </button>
+            </footer>
+          </form>
+        </section>
+      </aside>
+      <!-- Right Column: Results & Analysis -->
+      <div class="lg:col-span-7 space-y-stack-md">
+        <!-- Results Card -->
+        <section
+          class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,51,102,0.08)] p-stack-md border border-surface-container-high relative overflow-hidden">
+          <div class="relative z-10">
+            <div class="flex items-center gap-base mb-stack-md">
+              <span class="material-symbols-outlined text-primary" data-icon="analytics">analytics</span>
+              <h2 class="text-headline-md font-headline-md text-secondary">Resultado de la Predicción</h2>
+            </div>
+            <div class="flex flex-col items-center justify-center py-stack-lg text-center">
+              <div class="text-label-sm font-label-sm text-outline mb-base">Nivel de Agua Estimado</div>
+              <div class="text-display-lg font-display-lg text-primary tracking-tight">
+                3810.5 <span class="text-headline-md font-headline-md text-on-surface-variant">m.s.n.m.</span>
+              </div>
+              <div class="mt-stack-md w-full max-w-sm space-y-base">
+                <div class="flex justify-between text-label-md font-label-md px-1">
+                  <span class="text-error">Bajo</span>
+                  <span class="text-primary font-bold">Medio</span>
+                  <span class="text-tertiary">Alto</span>
+                </div>
+                <div class="w-full h-4 bg-surface-container-high rounded-full overflow-hidden flex">
+                  <div class="h-full bg-error/40 w-1/3"></div>
+                  <div class="h-full bg-primary w-1/3 relative border-x-2 border-white">
+                    <div class="absolute inset-0 bg-white/20"></div>
+                  </div>
+                  <div class="h-full bg-tertiary/40 w-1/3"></div>
+                </div>
+                <p class="text-label-sm text-on-surface-variant">El nivel se mantiene dentro del
+                  promedio histórico estacional.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Decoration: Lake Titicaca Silhouette -->
+          <div class="absolute -right-16 -bottom-16 opacity-5 pointer-events-none select-none w-96 h-96">
+            <img class="w-full h-full object-contain"
+              data-alt="A stylized, minimalist silhouette map of Lake Titicaca rendered in a clean technical blueprint style. The map uses thin, elegant strokes against a pristine white background with subtle deep blue accents. The design is modern and professional, suggesting a scientific data visualization context with plenty of clean negative space and a light, airy Andean atmosphere."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2tZa_AIIYTdYIgNukpiIkBv169cYMKZTHFPfc_lWKtzZb-x_Qqi6Oc-5d7-y_RFEyio30xc0k0tlqhravpgIphM91nDFqwrWvaR2ctqN4VE-bG-B9bg1tvFkbVljPF90QESiVALsSYtNsFmBkGKH8qzYNSr9o9qsXLCJeBxN2shNNmz33aZoDziUd-MDLcrnaw6hSINrdYTwgs-MKjsclYKZf1Ac11EMwRWpkkvleSWfqCHpfyGQOPbyPiB3zs7ioyTfd3Ruyztg" />
+          </div>
+        </section>
+        <!-- Analysis Card -->
+        <section
+          class="bg-primary/5 rounded-xl border border-primary-container p-stack-md flex gap-stack-md items-start">
+          <div class="bg-primary-container/20 p-2 rounded-lg shrink-0">
+            <span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+          </div>
+          <div>
+            <h3 class="text-headline-md font-headline-md text-on-primary-container mb-base">Análisis de
+              Datos</h3>
+            <p class="text-body-md text-on-surface-variant leading-relaxed">
+              Esta predicción se basa en modelos hidrológicos específicos para la cuenca del Titicaca,
+              considerando variaciones estacionales y registros históricos de precipitación. El algoritmo
+              integra variables de escorrentía y evaporación para garantizar una precisión del ±0.15%.
+            </p>
+          </div>
+        </section>
+        <!-- Data Points Bento Grid Placeholder -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-sm">
+          <div
+            class="bg-surface-container-highest p-stack-sm rounded-lg flex items-center gap-stack-sm border border-outline-variant/30">
+            <div class="p-2 bg-white rounded-full text-primary shadow-sm">
+              <span class="material-symbols-outlined" data-icon="water_drop">water_drop</span>
+            </div>
+            <div>
+              <div class="text-label-sm text-on-surface-variant">Humedad Suelo</div>
+              <div class="font-bold">64.2%</div>
+            </div>
+          </div>
+          <div
+            class="bg-surface-container-highest p-stack-sm rounded-lg flex items-center gap-stack-sm border border-outline-variant/30">
+            <div class="p-2 bg-white rounded-full text-primary shadow-sm">
+              <span class="material-symbols-outlined" data-icon="air">air</span>
+            </div>
+            <div>
+              <div class="text-label-sm text-on-surface-variant">Viento Promedio</div>
+              <div class="font-bold">12.5 km/h</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-surface-container-lowest border-t border-surface-variant">
+    <div
+      class="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-container-padding-desktop py-stack-md">
+      <div class="text-label-md font-label-md font-bold text-on-surface mb-stack-sm md:mb-0">
+        © 2024 Autoridad Binacional del Lago Titicaca (ALT)
+      </div>
+      <div class="flex space-x-gutter">
+        <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-opacity"
+          href="#">Documentación Técnica</a>
+        <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-opacity"
+          href="#">Privacidad</a>
+        <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-opacity"
+          href="#">Contacto</a>
+      </div>
+    </div>
+  </footer>
+  <script type="module">
+    import { NeuralNetwork } from "./asset/script/NeuralNetwork.js";
+    import { Layer } from "./asset/script/Layer.js";
+    import { Neuron } from "./asset/script/Neuron.js";
+    import { relu } from "./asset/script/Activacion.js";
+
+    console.log("Hello World");
+    const neuron = new Neuron([0.1, 0.2, 0.3], 0.1, relu);
+    const neuron2 = new Neuron([0.25], 0.2, relu);
+    console.log("|  Output de la neurona 1: ",neuron.activate([1, 2, 3]));
+    console.log("|  Output de la neurona 2: ",neuron2.activate([1.5]));
+
+    const layer = new Layer([neuron]);
+    const layer2 = new Layer([neuron2]);
+
+    console.log("|  Output de la capa 1: ",layer.forward([1, 2, 3]));
+    console.log("|  Output de la capa 2: ",layer2.forward([1.5]));
+
+    const neuralNetwork = new NeuralNetwork(layer, layer2);
+    const inputs = [1, 2, 3];
+    const output = neuralNetwork.forward(inputs);
+    console.log("|  Output de la red: ",output);
+
+    function redDesdeJson(json) {
+      const inputLayer = new Layer(json.input_layer.neurons.map(neuron => new Neuron(neuron.weights, neuron.bias, neuron.activation)));
+      const outputLayer = new Layer(json.output_layer.neurons.map(neuron => new Neuron(neuron.weights, neuron.bias, neuron.activation)));
+      return new NeuralNetwork(inputLayer, outputLayer);
+    }
+
+    // Cargar el modelo desde el archivo json
+    const model = await fetch("modelos/modelo_prueba.json");
+    const modelData = await model.json();
+    console.log("|  Modelo desde json: ",modelData);
+    const neuralNetworkf = redDesdeJson(modelData);
+    const inputsf = [1, 2, 3];
+    const outputf = neuralNetworkf.forward(inputsf);
+    console.log("Output de la red desde json: ", outputf);
+
+    function predectWithModel(neuralNetworkf, inputs, mins, maxs) {
+      // Igual que Python: normalizar solo las 6 entradas con mins/maxs de esas columnas (no el nivel).
+      const inMins = mins.slice(0, inputs.length);
+      const inMaxs = maxs.slice(0, inputs.length);
+      const normalizedInputs = inputs.map((input, index) =>
+        (input - inMins[index]) / (inMaxs[index] - inMins[index] + 1e-8)
+      );
+      const output = neuralNetworkf.forward(normalizedInputs);
+      // La salida de la red está en [0,1] respecto al nivel: desnormalizar con mins/maxs del objetivo (última columna).
+      const yMin = mins[mins.length - 1];
+      const yMax = maxs[maxs.length - 1];
+      const scale = yMax - yMin;
+      return output.map((o) => o * scale + yMin);
+    }
+    
+    const [new_modelData, { mins, maxs }] = await Promise.all([
+      fetch("modelos/modelo_1.nn").then((r) => r.json()),
+      fetch("modelos/minmax.json").then((r) => r.json()),
+    ]);
+    const new_neuralNetworkf = redDesdeJson(new_modelData);
+    // 2012;5;24;0;14.6;-0.6;
+    const input = [2025, 4, 5, 0, 18, 5]
+    const outputp = predectWithModel(new_neuralNetworkf, input, mins, maxs);
+    console.log("Output de la red desde json del modelo 1: ", outputp);
+  </script>
+</body>
+
+</html>

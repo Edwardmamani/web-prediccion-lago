@@ -1,0 +1,26 @@
+{
+    "input_layer": {
+        "neurons": [
+            {
+                "weights": [
+                    0.1,
+                    0.2,
+                    0.3
+                ],
+                "bias": 0.1,
+                "activation": "relu"
+            }
+        ]
+    },
+    "output_layer": {
+        "neurons": [
+            {
+                "weights": [
+                    0.25
+                ],
+                "bias": 0.2
+            }
+        ]
+    },
+    "lr": 0.005
+}
